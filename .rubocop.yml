@@ -1,0 +1,17 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Layout/TrailingWhitespace:
+  Enabled: false

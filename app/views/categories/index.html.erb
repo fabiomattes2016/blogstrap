@@ -1,0 +1,25 @@
+<h1>Categorias</h1>
+<hr>
+<div>
+  <%= link_to 'Nova categoria', new_category_path, class: "btn btn-success mb-4" if policy(:category).new? %>
+</div>
+<hr class="mb-4">
+<table class="table table-sm table-striped table-hover table-fixed">
+  <thead>
+    <tr>
+      <th width="75%">Name</th>
+      <th colspan="3" width="25%">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <%= link_to 'Editar', edit_category_path(category), class: "btn btn-warning btn-sm" if policy(category).edit? %>
+          <%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" if policy(category).destroy? %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

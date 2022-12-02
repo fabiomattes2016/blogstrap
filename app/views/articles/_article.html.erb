@@ -1,0 +1,13 @@
+<article class="blog-post">
+  <strong class="d-inline-block mb-2 text-primary">
+    <%= article.category.name %>
+  </strong>
+  <h2 class="blog-post-title mb-1"><%= article.title %></h2>
+  <p class="blog-post-meta">
+    <%= month_day_coma_year(article.created_at) %> por <span class="blog-post-meta"><%= article.user.email %></span>
+  </p>
+  <p><%= truncate(article.body, length: 150) %></p>
+  <p><%= link_to "Ler mais..." , article, class: "btn btn-link btn-sm" %></p>
+  <%= link_to "Editar", edit_article_path(article), class: "btn btn-secondary btn-sm" if policy(article).update? %>
+  <%= link_to "Excluir", article_path(article), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Tem certeza?" } if policy(article).destroy? %>
+</article>
